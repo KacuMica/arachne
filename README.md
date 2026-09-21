@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="assets/arachne-terminal-logo.png" width="180" alt="Arachne terminal logo" />
-</p>
-
-<h1 align="center">Arachne</h1>
+<h1 align="center">arachne</h1>
 
 <p align="center">Local-first, autonomous engineering CLI.</p>
 
