@@ -1,4 +1,10 @@
-# Arachne
+<p align="center">
+  <img src="assets/arachne-terminal-logo.png" width="180" alt="Arachne terminal logo" />
+</p>
+
+<h1 align="center">Arachne</h1>
+
+<p align="center">Local-first, autonomous engineering CLI.</p>
 
 Local-first, open-source CLI foundation for autonomous software development and deployment.
 
