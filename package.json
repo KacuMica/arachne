@@ -1,0 +1,16 @@
+{
+  "name": "arachne-cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first autonomous development and deployment CLI",
+  "type": "module",
+  "bin": { "arachne": "dist/cli.js", "aranche": "dist/cli.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "test": "vitest run"
+  },
+  "dependencies": { "commander": "^13.1.0", "zod": "^3.24.2" },
+  "devDependencies": { "@types/node": "^22.13.10", "tsx": "^4.19.3", "typescript": "^5.8.2", "vitest": "^3.0.8" }
+}

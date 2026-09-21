@@ -1,0 +1,27 @@
+{
+  "agent": {
+    "maxIterations": 4,
+    "testCommand": "npm test",
+    "dockerBuild": true,
+    "dockerRun": false
+  },
+  "provider": {
+    "kind": "ollama",
+    "model": "qwen2.5-coder:7b",
+    "baseUrl": "http://127.0.0.1:11434"
+  },
+  "runtime": {
+    "llamaCpp": {
+      "executable": "llama-server",
+      "host": "127.0.0.1",
+      "port": 8080,
+      "contextSize": 8192,
+      "gpuLayers": -1,
+      "autoStart": true
+    }
+  },
+  "git": {
+    "commitOnSuccess": false,
+    "pushOnSuccess": false
+  }
+}

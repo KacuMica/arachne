@@ -1,0 +1,15 @@
+import { z } from "zod";
+const actionSchema = z.discriminatedUnion("type", [
+    z.object({ type: z.literal("plan"), summary: z.string() }),
+    z.object({ type: z.literal("write_file"), path: z.string().min(1), content: z.string() }),
+    z.object({ type: z.literal("run_tests"), command: z.string().optional() }),
+    z.object({ type: z.literal("containerize"), dockerfile: z.string(), compose: z.string().optional() }),
+    z.object({ type: z.literal("done"), summary: z.string() })
+]);
+export function parseActions(text) {
+    const fenced = text.match(/```json\s*([\s\S]*?)```/i)?.[1] ?? text;
+    const candidate = JSON.parse(fenced.trim());
+    return z.array(actionSchema).min(1).parse(Array.isArray(candidate) ? candidate : candidate.actions);
+}
+export const SYSTEM_PROMPT = `You are Arachne, a coding agent. Return ONLY a JSON array (or {"actions": [...]}) using actions: plan, write_file, run_tests, containerize, done. Never use shell actions. Write paths relative to project root. First respond with a plan and write_file actions. In repair turns, only write needed corrections and run_tests. Do not output Markdown.`;
+//# sourceMappingURL=protocol.js.map
